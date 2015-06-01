@@ -1,0 +1,24 @@
+<div id="quiz_stage" ng-show="(curr < items.length)">
+    <section class="status">
+        <p>Score: {{ points }}</p>
+        <p>Question {{ curr + 1 }} of {{ items.length }}</p>
+        <section ng-hide="(msgType == 0)"
+                 ng-class="{ msg_correct: (msgType == 1), msg_wrong: (msgType == 2) }">
+            <p class="answer-notif-header">{{ (msgType == 1) | strFromBool: "Correct!" : "Wrong!" }}</p>
+            <p>Correct Answer: {{ items[curr].answers | strFromList: "," }}</p>
+            <button ng-click="next()">Next Question</button>
+        </section>
+    </section>
+    <section class="question" ng-show="(msgType == 0)">
+        <h2>{{ items[curr].question }}</h2>
+        <ol class="choices">
+            <li ng-repeat="choice in items[curr].choices" ng-click="chooseAnswer(choice)" >{{ choice }}</li>
+        </ol>
+        <p>Answer: <input type="text" ng-model="answer"></input></p>
+        <button ng-click="check()">Check</button>
+    </section>
+</div>
+<div ng-hide="(curr < items.length)">
+    <h3>Congratulations!</h3>
+    <p>{{ points }} points</p>
+</div>

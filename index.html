@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="selfquiz">
+<head>
+	<meta charset="utf-8"></meta>
+	<meta name="author" content="Vincent Paul Fiestada"></meta>
+	<title>Self Quiz</title>
+	<link rel="stylesheet" type="text/css" href="bower_components/fontawesome/css/font-awesome.min.css"></link>
+	<link rel="stylesheet" type="text/css" href="css/app.css"></link>
+</head>
+<body>
+	<h1 class="logo">Self<span class="logo-q">Q</span>uiz</h1>
+
+	<nav>
+		<ul>
+			<li><a ui-sref="quiz">Quiz</a></li>
+			<li><a ui-sref="help">Help</a></li>
+			<li><a ui-sref="about">About</a></li>
+		</ul>
+	</nav>
+
+	<!-- Page content appears here -->
+	<div ui-view></div>
+
+	<script lang="Javascript" src="bower_components/angular/angular.min.js"></script>
+	<script lang="Javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script lang="Javascript" src="js/ctrl.js"></script>
+	<script lang="Javascript" src="js/filters.js"></script>
+	<script lang="Javascript" src="js/app.js"></script>
+</body>
+</html>
