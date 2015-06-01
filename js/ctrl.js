@@ -20,15 +20,16 @@ selfquizCtrl.controller("quizCtrl",['$scope', '$http', function($scope, $http)
         writeErrorMessage("quiz_stage", status, data);
     });
 
-    $scope.curr = 0;
-
-    $scope.shuffle = shuffle; // See app.js
-
-    $scope.points = 0;
-
-    $scope.answer = "";
-
-    $scope.msgType = 0;
+    $scope.restart = function()
+    {
+        $scope.curr = 0;
+        $scope.shuffle = shuffle; // See app.js
+        $scope.points = 0;
+        $scope.answer = "";
+        $scope.msgType = 0;
+        $scope.state = 1;
+    };
+    $scope.restart();
 
     $scope.chooseAnswer = function(a)
     {
@@ -67,10 +68,17 @@ selfquizCtrl.controller("quizCtrl",['$scope', '$http', function($scope, $http)
 
     $scope.next = function()
     {
-        $scope.curr += 1;
-        $scope.answer = "";
-        $scope.msgType = 0;
-    }
+        if ($scope.state != 2 || $scope.curr >= $scope.items.length - 1)
+        {
+            $scope.state += 1;
+        }
+        else
+        {
+            $scope.curr += 1;
+            $scope.answer = "";
+            $scope.msgType = 0;
+        }
+    };
 }]);
 
 selfquizCtrl.controller("stdCtrl",[function()

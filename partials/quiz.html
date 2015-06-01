@@ -1,7 +1,13 @@
-<div id="quiz_stage" ng-show="(curr < items.length)">
+<!-- STEP 1: Select/add your questions -->
+<div ng-show="(state == 1)">
+    <button ng-click="next()">Start Quiz</button>
+</div>
+
+<!-- STEP 2: Take the quiz -->
+<div id="quiz_stage" ng-show="(state == 2)">
     <section class="status">
-        <p>Score: {{ points }}</p>
-        <p>Question {{ curr + 1 }} of {{ items.length }}</p>
+        <p>Score: {{ points }} &nbsp; Question {{ curr + 1 }} of {{ items.length }}</p>
+        <button ng-click="restart()">Restart</button>
         <section ng-hide="(msgType == 0)"
                  ng-class="{ msg_correct: (msgType == 1), msg_wrong: (msgType == 2) }">
             <p class="answer-notif-header">{{ (msgType == 1) | strFromBool: "Correct!" : "Wrong!" }}</p>
@@ -18,7 +24,10 @@
         <button ng-click="check()">Check</button>
     </section>
 </div>
-<div ng-hide="(curr < items.length)">
+
+<!-- STEP 3: View results -->
+<div ng-show="(state == 3)">
     <h3>Congratulations!</h3>
     <p>{{ points }} points</p>
+    <button ng-click="restart()">Restart</button>
 </div>
