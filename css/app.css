@@ -17,6 +17,10 @@ body
 {
 	padding: 10px 20px;
 }
+.fa
+{
+	color: inherit;
+}
 /* Headers, Titles, and Logos */
 .logo
 {
@@ -52,8 +56,9 @@ div[ui-view]
 /* Buttons */
 button, input[type="submit"], select
 {
-	background: rgb(0,64,255);
+	background: rgb(203, 146, 0);
 	padding:7px 12px 7px 12px;
+	margin: 6px;
 	color: #ffffff;
 	border:none;
 	border-radius: 3px;
@@ -76,45 +81,10 @@ button[disabled], button[disabled]:hover, button[disabled]:active
 	box-shadow: none;
 	color: #d9d9d9;
 }
-/* Generic message styles */
-.error, .success
+button.main
 {
-	border-radius: 5px;
-	border-style: solid;
-	border-width: 1px;
+	font-size: 16pt;
 	padding: 15px;
-}
-.error>*, .success>*
-{
-	color: #fff;
-}
-/*For error messages*/
-.error
-{
-	background: #ca1423;
-	color: #ffffff;
-	border-color: #96000c;
-}
-.error a
-{
-	color: #fcaf4b;
-}
-.error button
-{
-	color:#690000;
-	background:#e3800f;
-}
-/* For success messages */
-.success
-{
-	background: #007643;
-	color: #ffffff;
-	border-color: #005336;
-}
-.success button
-{
-	color:#000e02;
-	background:#48cd00;
 }
 /* Quiz Stage */
 .choices li
@@ -146,4 +116,43 @@ section.msg_correct
 .answer-notif-header
 {
 	font-size: 72px;
+}
+/* Question Staging Area */
+.question_roster
+{
+	margin: 10px 0px;
+	padding: 0px;
+}
+.question_roster > li
+{
+	list-style-type: none;
+	margin: 0px 0px 15px 0px;
+	padding: 10px;
+	background: rgb(255, 220, 96);
+	border-radius: 7px;
+	box-shadow: 0px 6px 0px rgb(154, 102, 1);
+}
+.question_roster > li.new_question
+{
+	background: rgb(53, 234, 158);
+	box-shadow: 0px 6px 0px rgb(0, 106, 55);
+}
+.question_roster > li > p, .question_roster > li > h3
+{
+	margin: 3px;
+	padding: 1px;
+}
+.question_roster input[type="text"]
+{
+	background: none;
+	border: 0px solid #0c0c0c;
+	width: 95%;
+	border-bottom-width: 2px;
+	margin-left: 15px;
+}
+/* Input elements */
+input[type="text"], textarea
+{
+	font-family: sans-serif;
+	font-size: 12pt;
 }

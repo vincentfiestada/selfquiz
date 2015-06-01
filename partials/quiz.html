@@ -1,6 +1,42 @@
 <!-- STEP 1: Select/add your questions -->
 <div ng-show="(state == 1)">
-    <button ng-click="next()">Start Quiz</button>
+    <section>
+        <h2>Questions:</h2>
+        <ul class="question_roster">
+            <li ng-repeat="item in items">
+                <p>
+                    <span class="fa fa-question-circle"></span>
+                    <input type="text" ng-model="item.question" />
+                </p>
+                <p>
+                    <span class="fa fa-th-list"></span>
+                    <input type="text" ng-model="item.choices" />
+                </p>
+                <p>
+                    <span class="fa fa-check-square"></span>
+                    <input type="text" ng-model="item.answers" />
+                </p>
+                <button ng-click="removeQuestion(item)"><span class="fa fa-trash"></span> Remove</button>
+            </li>
+            <li class="new_question">
+                <h3>Add Question</h3>
+                <p>
+                    <span class="fa fa-question-circle"></span>
+                    <input type="text" ng-model="newQuestion" />
+                </p>
+                <p>
+                    <span class="fa fa-th-list"></span>
+                    <input type="text" ng-model="newChoices" />
+                </p>
+                <p>
+                    <span class="fa fa-check-square"></span>
+                    <input type="text" ng-model="newAnswers" />
+                </p>
+                <button ng-click="addQuestion()">Add Question</button>
+            </li>
+        </ul>
+    </section>
+    <button ng-click="next()" class="main">Start Quiz</button>
 </div>
 
 <!-- STEP 2: Take the quiz -->
@@ -12,7 +48,7 @@
                  ng-class="{ msg_correct: (msgType == 1), msg_wrong: (msgType == 2) }">
             <p class="answer-notif-header">{{ (msgType == 1) | strFromBool: "Correct!" : "Wrong!" }}</p>
             <p>Correct Answer: {{ items[curr].answers | strFromList: "," }}</p>
-            <button ng-click="next()">Next Question</button>
+            <button ng-click="next()" class="main">Next Question</button>
         </section>
     </section>
     <section class="question" ng-show="(msgType == 0)">
@@ -21,7 +57,7 @@
             <li ng-repeat="choice in items[curr].choices" ng-click="chooseAnswer(choice)" >{{ choice }}</li>
         </ol>
         <p>Answer: <input type="text" ng-model="answer"></input></p>
-        <button ng-click="check()">Check</button>
+        <button ng-click="check()" class="main">Check</button>
     </section>
 </div>
 
@@ -29,5 +65,5 @@
 <div ng-show="(state == 3)">
     <h3>Congratulations!</h3>
     <p>{{ points }} points</p>
-    <button ng-click="restart()">Restart</button>
+    <button ng-click="restart()" class="main">Restart</button>
 </div>

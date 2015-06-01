@@ -28,6 +28,10 @@ selfquizCtrl.controller("quizCtrl",['$scope', '$http', function($scope, $http)
         $scope.answer = "";
         $scope.msgType = 0;
         $scope.state = 1;
+        // New question data
+        $scope.newQuestion = "";
+        $scope.newChoices = "";
+        $scope.newAnswers = "";
     };
     $scope.restart();
 
@@ -54,6 +58,7 @@ selfquizCtrl.controller("quizCtrl",['$scope', '$http', function($scope, $http)
 
     };
 
+    // Try to match user's answers with correct answers
     var isCorrect = function(correct_answers, answer)
     {
         for (var i = 0; i < correct_answers.length; i++)
@@ -66,10 +71,49 @@ selfquizCtrl.controller("quizCtrl",['$scope', '$http', function($scope, $http)
         return false;
     };
 
+    // Add a new item from newQuestion fields
+    $scope.addQuestion = function()
+    {
+        var newQ = { "question": $scope.newQuestion,
+                     "choices": $scope.newChoices,
+                     "answers": $scope.newAnswers
+                   };
+        $scope.items.push(newQ);
+        // Reset New question data
+        $scope.newQuestion = "";
+        $scope.newChoices = "";
+        $scope.newAnswers = "";
+    };
+
+    // Remove an item
+    // args: - i (the item to remove)
+    $scope.removeQuestion = function(i)
+    {
+        var index = $scope.items.lastIndexOf(i);
+        $scope.items.splice(index, 1);
+    };
+
     $scope.next = function()
     {
         if ($scope.state != 2 || $scope.curr >= $scope.items.length - 1)
         {
+            if ($scope.state == 1)
+            {
+                // Before starting quiz, convert choices and answers into arrays
+                angular.forEach($scope.items, function(item)
+                {
+                    item.choices = item.choices.toString().replace(", ",",").split(",");
+                    item.answers = item.answers.toString().replace(", ",",").split(",");
+                    if (item.choices[0].replace(" ","")==="")
+                    {
+                        item.choices = [ ];
+                    }
+                    if (item.answers[0].replace(" ","")==="")
+                    {
+                        item.answers = [ ];
+                    }
+                });
+            }
             $scope.state += 1;
         }
         else
