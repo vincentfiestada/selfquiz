@@ -11,21 +11,6 @@
         <button ng-click="unloadItems()">Clear All</button>
         <h2>Questions:</h2>
         <ul class="question_roster">
-            <li ng-repeat="item in items">
-                <p>
-                    <span class="fa fa-question-circle"></span>
-                    <input type="text" ng-model="item.question" />
-                </p>
-                <p>
-                    <span class="fa fa-th-list"></span>
-                    <input type="text" ng-model="item.choices" />
-                </p>
-                <p>
-                    <span class="fa fa-check-square"></span>
-                    <input type="text" ng-model="item.answers" />
-                </p>
-                <button ng-click="removeQuestion(item)"><span class="fa fa-trash"></span> Remove</button>
-            </li>
             <li class="new_question">
                 <h3>Add Question</h3>
                 <p>
@@ -41,6 +26,21 @@
                     <input type="text" ng-model="newAnswers" />
                 </p>
                 <button ng-click="addQuestion()">Add Question</button>
+            </li>
+            <li ng-repeat="item in items">
+                <p>
+                    <span class="fa fa-question-circle"></span>
+                    <input type="text" ng-model="item.question" />
+                </p>
+                <p>
+                    <span class="fa fa-th-list"></span>
+                    <input type="text" ng-model="item.choices" />
+                </p>
+                <p>
+                    <span class="fa fa-check-square"></span>
+                    <input type="text" ng-model="item.answers" />
+                </p>
+                <button ng-click="removeQuestion(item)"><span class="fa fa-trash"></span> Remove</button>
             </li>
         </ul>
     </section>
