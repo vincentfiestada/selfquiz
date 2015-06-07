@@ -2,22 +2,17 @@ var selfquizCtrl = angular.module("selfquizCtrl", []);
 
 selfquizCtrl.controller("quizCtrl",['$scope', '$http', function($scope, $http)
 {
-    $scope.items = [];
-    // Get quiz items
-    $http({
-        url: "json/items.json?d=" + String((new Date()).getTime()),
-        method:"GET"
-    }).success(function(data, status)
+
+    // Load Question templates
+    $scope.q_templates = [];
+    $http.get("json/q_templates.index.json?t=" + String((new Date()).getTime()))
+    .success(function(data, status)
     {
-        $scope.items = shuffle(data);
-        // Shuffly choices too
-        angular.forEach($scope.items, function(x)
-        {
-            x.choices = shuffle(x.choices);
-        });
-    }).error(function(data, status)
+        $scope.q_templates = data;
+    })
+    .error(function(data, status)
     {
-        writeErrorMessage("quiz_stage", status, data);
+        writeErrorMessage("mainView", status, "Templates list could not be loaded. " + data + ". Please reload this page (F5) and try again.");
     });
 
     $scope.restart = function()
@@ -32,8 +27,54 @@ selfquizCtrl.controller("quizCtrl",['$scope', '$http', function($scope, $http)
         $scope.newQuestion = "";
         $scope.newChoices = "";
         $scope.newAnswers = "";
+        // Shuffle items
+        if ($scope.items)
+        {
+            $scope.shuffleItems($scope.items);
+        }
+        else
+        {
+            $scope.items = [];
+        }
     };
     $scope.restart();
+
+    // Question Template loader/unloader
+    $scope.loadItems = function(href)
+    {
+        $http.get(href)
+        .success(function(data, status)
+        {
+            // Shuffle first
+            data = $scope.shuffleItems(data);
+            angular.forEach(data, function(item)
+            {
+                $scope.items.push(item);
+            });
+        })
+        .error(function(data, status)
+        {
+            writeErrorMessage("mainView", status, "Could not load questions from \"" + href + "\". " + data + ". Please reload this page (F5) and try again.");
+        });
+    };
+
+    $scope.unloadItems = function()
+    {
+        if (confirm("Are you sure you want to remove all current items?"))
+        {
+            $scope.items = [];
+        }
+    };
+
+    $scope.shuffleItems = function(data)
+    {
+        data = shuffle(data);
+        angular.forEach(data, function(i)
+        {
+            i.choices = shuffle(i.choices);
+        });
+        return data;
+    };
 
     $scope.chooseAnswer = function(a)
     {

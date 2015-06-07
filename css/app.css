@@ -51,7 +51,7 @@ nav ul li a
 /* Elements, Divs, Sections */
 div[ui-view]
 {
-	padding: 35px 0px;
+	padding: 5px 0px;
 }
 /* Buttons */
 button, input[type="submit"], select
@@ -91,6 +91,24 @@ button.main
 {
 	list-style-type: upper-alpha;
 }
+     /* Choices button colors */
+.choices li:nth-child(1) button
+{
+	background: rgb(150, 24, 24);
+}
+.choices li:nth-child(2) button
+{
+	background: rgb(4, 112, 76);
+}
+.choices li:nth-child(3) button
+{
+	background: rgb(4, 93, 143);
+}
+.choices li:nth-child(4) button
+{
+	background: rgb(117, 0, 81);
+}
+
 section[class^="msg_"]
 {
 	display: block;

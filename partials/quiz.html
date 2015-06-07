@@ -1,6 +1,14 @@
 <!-- STEP 1: Select/add your questions -->
 <div ng-show="(state == 1)">
     <section>
+        <label>Templates: </label>
+        <select ng-model="selectedTemplate">
+            <option ng-repeat="template in q_templates" value="{{ template.href }}">
+                {{ template.title }}
+            </option>
+        </select>
+        <button ng-click="loadItems( selectedTemplate )">Load Items</button>
+        <button ng-click="unloadItems()">Clear All</button>
         <h2>Questions:</h2>
         <ul class="question_roster">
             <li ng-repeat="item in items">
@@ -40,7 +48,7 @@
 </div>
 
 <!-- STEP 2: Take the quiz -->
-<div id="quiz_stage" ng-show="(state == 2)">
+<div ng-show="(state == 2)">
     <section class="status">
         <p>Score: {{ points }} &nbsp; Question {{ curr + 1 }} of {{ items.length }}</p>
         <button ng-click="restart()">Restart</button>
@@ -54,7 +62,9 @@
     <section class="question" ng-show="(msgType == 0)">
         <h2>{{ items[curr].question }}</h2>
         <ol class="choices">
-            <li ng-repeat="choice in items[curr].choices" ng-click="chooseAnswer(choice)" >{{ choice }}</li>
+            <li ng-repeat="choice in items[curr].choices">
+                <button ng-click="chooseAnswer(choice)">{{ choice }}</button>
+            </li>
         </ol>
         <p>Answer: <input type="text" ng-model="answer"></input></p>
         <button ng-click="check()" class="main">Check</button>
