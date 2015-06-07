@@ -1,0 +1,32 @@
+[
+    {
+        "question": "Who is the current Prime Minister of Japan?",
+        "choices": [
+            "Shinzo Abe",
+            "David Cameron",
+            "Xi Jinping",
+            "Vladimir Putin"
+        ],
+        "answers": [ "Shinzo Abe" ]
+    },
+    {
+        "question": "Who is the father of Theoretical Computer Science?",
+        "choices": [],
+        "answers": [ "Alan Turing", "Alan M. Turing", "Turing" ]
+    },
+    {
+        "question": "Which organisms produce their own food?",
+        "choices": [
+            "Autotrophs",
+            "Heterotrophs",
+            "Atrophy",
+            "Omnivores"
+        ],
+        "answers": [ "Autotrophs" ]
+    },
+    {
+        "question": "What is the capital of South Korea?",
+        "choices": [],
+        "answers": [ "Seoul" ]
+    }
+]
