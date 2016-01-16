@@ -4,7 +4,7 @@ selfquizCtrl.controller("quizCtrl",['$scope', '$http', function($scope, $http)
 {
     // Load Question templates
     $scope.q_templates = [];
-    $http.get("/json/q_templates.index.json?t=" + String((new Date()).getTime()))
+    $http.get("/json/q_templates.index.json")
     .success(function(data, status)
     {
         $scope.q_templates = data;
