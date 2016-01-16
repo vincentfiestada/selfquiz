@@ -1,32 +1,112 @@
 [
     {
-        "question": "Who is the current Prime Minister of Japan?",
+        "question": "What is the capital of Japan?",
         "choices": [
-            "Shinzo Abe",
-            "David Cameron",
-            "Xi Jinping",
-            "Vladimir Putin"
+            "Tokyo",
+            "Nagoya",
+            "Hiroshima",
+            "Okazaki"
         ],
-        "answers": [ "Shinzo Abe" ]
+        "answers": [ "Tokyo" ]
     },
     {
-        "question": "Who is the father of Theoretical Computer Science?",
-        "choices": [],
-        "answers": [ "Alan Turing", "Alan M. Turing", "Turing" ]
+        "question": "What is the capital of China?",
+        "choices": [
+            "Beijing",
+            "Seoul",
+            "Macau",
+            "Shenzen"
+        ],
+        "answers": [ "Beijing" ]
     },
     {
-        "question": "Which organisms produce their own food?",
+        "question": "Where is the White House located?",
         "choices": [
-            "Autotrophs",
-            "Heterotrophs",
-            "Atrophy",
-            "Omnivores"
+            "Washington D.C.",
+            "New York",
+            "Chicago",
+            "Boston"
         ],
-        "answers": [ "Autotrophs" ]
+        "answers": [ "Washington", "Washington D.C.", "Washington DC" ]
     },
     {
         "question": "What is the capital of South Korea?",
         "choices": [],
         "answers": [ "Seoul" ]
+    },
+    {
+        "question": "Athens is the capital of which country?",
+        "choices": [
+            "Greece",
+            "Republic of Macedonia",
+            "Italy",
+            "Germany"
+        ],
+        "answers": [ "Greece", "Hellenic Republic", "The Hellenic Republic" ]
+    },
+    {
+        "question": "Where is Westminster Palace located?",
+        "choices": [
+            "London",
+            "Edinburgh",
+            "Sydney",
+            "Liverpool"
+        ],
+        "answers": [ "London", "Westminster City" ]
+    },
+    {
+        "question": "Manila is the capital of what country?",
+        "choices": [
+            "Philippines",
+            "Haiti",
+            "Kenya",
+            "Thailand"
+        ],
+        "answers": [ "Philippines", "The Philippines", "Pilipinas" ]
+    },
+    {
+        "question": "Moscow is the capital of what country?",
+        "choices": [],
+        "answers": [ "Russia", "Russian Federation", "The Russian Federation" ]
+    },
+    {
+        "question": "What is the capital of Australia?",
+        "choices": [
+            "Canberra",
+            "Sydney",
+            "Dawin",
+            "Brisbane"
+        ],
+        "answers": [ "Canberra" ]
+    },
+    {
+        "question": "What is the capital of India?",
+        "choices": [
+            "New Delhi",
+            "Hyderabad",
+            "Mumbai",
+            "Agra"
+        ],
+        "answers": [ "New Delhi" ]
+    },
+    {
+        "question": "What is the capital of Malaysia?",
+        "choices": [
+            "Kuala Lumpur",
+            "George Town",
+            "Johor Bahru",
+            "Putrajaya"
+        ],
+        "answers": [ "Kuala Lumpur" ]
+    },
+    {
+        "question": "What is the capital of Mexico?",
+        "choices": [],
+        "answers": ["Mexico", "Mexico City", "City of Mexico"]
+    },
+    {
+        "question": "What is the capital of Brazil?",
+        "choices": [],
+        "answers": ["Brasilia"]
     }
 ]

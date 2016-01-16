@@ -1,7 +1,7 @@
 <!-- STEP 1: Select/add your questions -->
 <div ng-show="(state == 1)">
     <section>
-        <label>Templates: </label>
+        <label>Load Templates: </label>
         <select ng-model="selectedTemplate">
             <option ng-repeat="template in q_templates" value="{{ template.href }}">
                 {{ template.title }}
@@ -9,6 +9,7 @@
         </select>
         <button ng-click="loadItems( selectedTemplate )">Load Items</button>
         <button ng-click="unloadItems()">Clear All</button>
+        <button ng-click="shuffleItems( items )">Shuffle</button>
         <h2>Questions:</h2>
         <ul class="question_roster">
             <li class="new_question">

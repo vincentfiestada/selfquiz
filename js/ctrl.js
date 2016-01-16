@@ -2,7 +2,6 @@ var selfquizCtrl = angular.module("selfquizCtrl", []);
 
 selfquizCtrl.controller("quizCtrl",['$scope', '$http', function($scope, $http)
 {
-
     // Load Question templates
     $scope.q_templates = [];
     $http.get("json/q_templates.index.json?t=" + String((new Date()).getTime()))
@@ -18,7 +17,6 @@ selfquizCtrl.controller("quizCtrl",['$scope', '$http', function($scope, $http)
     $scope.restart = function()
     {
         $scope.curr = 0;
-        $scope.shuffle = shuffle; // See app.js
         $scope.points = 0;
         $scope.answer = "";
         $scope.msgType = 0;
@@ -42,7 +40,7 @@ selfquizCtrl.controller("quizCtrl",['$scope', '$http', function($scope, $http)
     // Question Template loader/unloader
     $scope.loadItems = function(href)
     {
-        $http.get(href)
+        $http.get(href + "?t=" + String((new Date()).getTime()))
         .success(function(data, status)
         {
             // Shuffle first
